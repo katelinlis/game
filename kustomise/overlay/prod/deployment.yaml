@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game-deployment
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    spec:
+      containers:
+        - name: game-deployment
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi

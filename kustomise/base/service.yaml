@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: game-service
+  labels:
+    app: &app game
+spec:
+  type: ClusterIP
+
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: internal
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+      #      nodePort: 3080
+      #targetPort: 3000
+  selector:
+    app: *app
